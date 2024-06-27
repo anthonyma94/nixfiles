@@ -1,11 +1,11 @@
 # Steps
 
-1. Install NixOS and install Git if not already on there.
-1. Clone this repo with HTTPS (we will need to switch to SSH later).
-1. Copy (and replace if necessary) `configuration.nix` and `hardware-configuration.nix` from `/etc/nixos/` into the desired system directory.
-1. Enable Flakes by adding `nix.settings.experimental-features = [ "nix-command" "flakes" ];` to `configuration.nix`.
+1. Enable Flakes by adding `nix.settings.experimental-features = [ "nix-command" "flakes" ];` to `/etc/nixos/configuration.nix`.
     - Also add `git` and `vim` to `environment.systemPackages`.
     - Enable ssh now if needed, this is the default ssh with PasswordAuthentication enabled.
+1. Run `sudo nixos-rebuild switch` to apply changes.
+1. Clone this repo with HTTPS (we will need to switch to SSH later).
+1. Copy (and replace if necessary) `configuration.nix` and `hardware-configuration.nix` from `/etc/nixos/` into the desired system directory.
 1. Create or download SSH key to `~/.ssh/id_ed25519`.
     - If creating a new key, it needs to be uploaded to [GitHub](https://github.com/settings/keys).
 1. Install home-manager by following instructions [here](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone).
