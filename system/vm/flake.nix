@@ -18,6 +18,7 @@
     ]) nixosConfigurations;
     inherit (homeConfigurations "anthony" [
       ../../preset/desktop/user.nix
+      ../../module/sshd/user.nix
     ]) homeConfigurations;
 	};
 }

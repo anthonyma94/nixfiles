@@ -20,14 +20,6 @@
   sops = {
     age.sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
     defaultSopsFile = ../../secret/secret.yaml;
-    secrets = {
-      ssh_config = {};
-    };
-  };
-
-  programs.ssh = {
-    enable = true;
-    includes = [ "${config.sops.secrets.ssh_config.path}" ];
   };
 
   programs.git = {
