@@ -25,6 +25,8 @@
           "[](#9A348E)"
           "$os"
           "$username"
+          "[@](bg:#9A348E)"
+          "$hostname"
           "[](bg:#DA627D fg:#9A348E)"
           "$directory"
           "[](fg:#DA627D bg:#FCA17D)"
@@ -57,8 +59,15 @@
           show_always = true;
           style_user = "bg:#9a348e";
           style_root = "bg:#9a348e";
-          format = "[$user ]($style)";
+          format = "[$user]($style)";
           disabled = false;
+        };
+
+        hostname = {
+          ssh_only = false;
+          disabled = false;
+          style = "bg:#9a348e";
+          format = "[$hostname $ssh_symbol]($style)";
         };
 
         # os module
