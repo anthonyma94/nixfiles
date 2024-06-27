@@ -11,7 +11,7 @@
 1. Install home-manager by following instructions [here](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone).
     - You may need to re-login when running the install command.
 1. Generate a key for SOPS:
-    ```
+    ```bash
     mkdir -p ~/.config/sops/age
     nix-shell -p ssh-to-age --run "ssh-to-age -private-key -i ~/.ssh/id_ed25519 > ~/.config/sops/age/keys.txt"
     ```
