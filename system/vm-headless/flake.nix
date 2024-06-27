@@ -12,8 +12,10 @@
     homeConfigurations = import ../../preset/base/user.nix { inherit nixpkgs home-manager inputs; version = "24.05"; };
     nixosConfigurations = import ../../preset/base/system.nix { inherit nixpkgs inputs; };
 	in {
-    inherit (nixosConfigurations {hostname = "vm"; username = "anthony";} [
+    inherit (nixosConfigurations {hostname = "vm-headless"; username = "anthony";} [
       ./configuration.nix
+      ../../module/sshd/system.nix
+      ../../module/docker/system.nix
     ]) nixosConfigurations;
     inherit (homeConfigurations "anthony" [
     ]) homeConfigurations;

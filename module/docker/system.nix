@@ -1,5 +1,5 @@
-{...}:
+{username, ...}:
 {
   virtualisation.docker.enable = true;
-  users.users.anthony.extraGroups = [ "docker" ];
+  users.users.${username}.extraGroups = [ "docker" ];
 }
