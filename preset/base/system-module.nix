@@ -1,4 +1,4 @@
-{ pkgs, hostname, ... }:
+{ pkgs, hostname, username, ... }:
 
 {
   imports = [
@@ -9,9 +9,9 @@
   environment.systemPackages = with pkgs; [
     cargo
     curl
+    htop
     gcc
     git
-    git-credential-manager
     gnumake
     lazygit
     rustc
@@ -23,20 +23,14 @@
 
   programs.git = {
     enable = true;
-    config = {
-      credential = {
-        credentialStore = "gpg";
-      };
-    };
   };
-
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ];})
   ];
 
   environment.shellAliases = {
-    "os-rebuild" = "nixos-rebuild switch --flake $HOME/.nixfiles/system/${hostname}";
-    "home-rebuild" = "home-manager switch --flake $HOME/.nixfiles/system/${hostname}";
+    "os-rebuild" = "nixos-rebuild switch --flake /home/${username}/.nixfiles/system/${hostname}";
+    "home-rebuild" = "home-manager switch --flake /home/${username}/.nixfiles/system/${hostname}";
   };
 }

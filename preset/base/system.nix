@@ -1,6 +1,6 @@
 { nixpkgs, system ? "x86_64-linux", inputs, ... }:
 
-hostname:
+{hostname, username}:
 modules:
 
 let
@@ -16,7 +16,7 @@ in
         ../../module/neovim/system.nix
       ] ++ modules;
       specialArgs = {
-          inherit inputs hostname;
+          inherit inputs hostname username;
       };
     };
   };
